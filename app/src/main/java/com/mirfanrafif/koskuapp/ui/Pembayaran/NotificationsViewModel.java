@@ -1,4 +1,4 @@
-package com.mirfanrafif.koskuapp.ui.notifications;
+package com.mirfanrafif.koskuapp.ui.Pembayaran;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

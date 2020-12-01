@@ -1,6 +1,5 @@
-package com.mirfanrafif.koskuapp.ui.dashboard;
+package com.mirfanrafif.koskuapp.ui.AnakKos;
 
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import com.mirfanrafif.koskuapp.models.AnakKos;
 

@@ -1,17 +1,13 @@
-package com.mirfanrafif.koskuapp.ui.dashboard;
+package com.mirfanrafif.koskuapp.ui.AnakKos;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.RecyclerView;
 import com.mirfanrafif.koskuapp.R;
 import com.mirfanrafif.koskuapp.databinding.AnakKosItemBinding;
-import com.mirfanrafif.koskuapp.databinding.FragmentDashboardBinding;
 import com.mirfanrafif.koskuapp.models.AnakKos;
 
 import java.util.List;
