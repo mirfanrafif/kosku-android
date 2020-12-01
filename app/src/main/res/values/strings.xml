@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">KoskuApp</string>
+    <string name="app_name">Kosku App</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_dashboard">Anak Kos</string>
+    <string name="title_notifications">Pembayaran</string>
 </resources>

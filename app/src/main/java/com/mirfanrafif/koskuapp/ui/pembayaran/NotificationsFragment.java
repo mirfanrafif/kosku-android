@@ -1,4 +1,4 @@
-package com.mirfanrafif.koskuapp.ui.Pembayaran;
+package com.mirfanrafif.koskuapp.ui.pembayaran;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -1,5 +1,6 @@
-package com.mirfanrafif.koskuapp.ui.AnakKos;
+package com.mirfanrafif.koskuapp.ui.anakkos;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import androidx.databinding.BindingAdapter;

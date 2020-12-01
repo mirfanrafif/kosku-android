@@ -1,4 +1,4 @@
-package com.mirfanrafif.koskuapp.ui.AnakKos;
+package com.mirfanrafif.koskuapp.ui.anakkos;
 
 import android.content.Context;
 import android.view.LayoutInflater;

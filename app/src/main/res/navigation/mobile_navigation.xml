@@ -13,13 +13,13 @@
 
     <fragment
             android:id="@+id/navigation_dashboard"
-            android:name="com.mirfanrafif.koskuapp.ui.AnakKos.DashboardFragment"
+            android:name="com.mirfanrafif.koskuapp.ui.anakkos.DashboardFragment"
             android:label="@string/title_dashboard"
             tools:layout="@layout/fragment_dashboard"/>
 
     <fragment
             android:id="@+id/navigation_notifications"
-            android:name="com.mirfanrafif.koskuapp.ui.Pembayaran.NotificationsFragment"
+            android:name="com.mirfanrafif.koskuapp.ui.pembayaran.NotificationsFragment"
             android:label="@string/title_notifications"
             tools:layout="@layout/fragment_notifications"/>
 </navigation>

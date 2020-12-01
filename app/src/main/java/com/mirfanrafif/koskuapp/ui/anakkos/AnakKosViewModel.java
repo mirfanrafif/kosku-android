@@ -1,4 +1,4 @@
-package com.mirfanrafif.koskuapp.ui.AnakKos;
+package com.mirfanrafif.koskuapp.ui.anakkos;
 
 import androidx.lifecycle.ViewModel;
 import com.mirfanrafif.koskuapp.models.AnakKos;

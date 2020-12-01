@@ -1,5 +1,6 @@
-package com.mirfanrafif.koskuapp.ui.AnakKos;
+package com.mirfanrafif.koskuapp.ui.anakkos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,7 +21,8 @@ public class DashboardFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel = ViewModelProviders.of(this).get(DashboardViewModel.class);
+        DashboardViewModel dashboardViewModel =
+                ViewModelProviders.of(this).get(DashboardViewModel.class);
         FragmentDashboardBinding binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_dashboard, container, false);
         View view = binding.getRoot();
@@ -36,6 +38,14 @@ public class DashboardFragment extends Fragment {
             Log.d("DashboardFragment", "Uda lewat sini lho");
         });
         binding.setViewModel(dashboardViewModel);
+
+        binding.tambahDataFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), TambahAnakKos.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
