@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="viewModel" type="com.mirfanrafif.koskuapp.ui.dashboard.AnakKosViewModel"/>
+    </data>
+    
+    <androidx.cardview.widget.CardView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+
+                  android:layout_marginBottom="8dp"
+                  android:elevation="4dp"
+    >
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="vertical"
+                      android:padding="8dp"
+        >
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:text="@{viewModel.nama}"
+                      android:id="@+id/namaLabel"
+                      android:textSize="16sp"
+                      android:textColor="#000000"
+            />
+
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/asalLabel"
+                      android:text="@{viewModel.asal}"
+            />
+
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:text="@{viewModel.nohp}"
+                      android:id="@+id/nohpLabel"/>
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>
