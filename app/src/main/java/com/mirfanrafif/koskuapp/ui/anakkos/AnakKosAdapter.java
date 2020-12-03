@@ -1,7 +1,9 @@
 package com.mirfanrafif.koskuapp.ui.anakkos;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -51,6 +53,14 @@ public class AnakKosAdapter extends RecyclerView.Adapter<AnakKosAdapter.AnakKosV
         public void setBinding(AnakKosViewModel viewModel) {
             this.binding.setViewModel(viewModel);
             binding.executePendingBindings();
+            binding.anakKosCard.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(binding.getRoot().getContext(), DetailAnakKos.class);
+                    intent.putExtra("EXTRA_ID", viewModel.getId());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }
