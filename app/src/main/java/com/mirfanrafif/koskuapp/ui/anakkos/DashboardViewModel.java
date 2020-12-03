@@ -19,13 +19,11 @@ import java.util.List;
 public class DashboardViewModel extends ViewModel {
 
     private MutableLiveData<String> title;
-    private AnakKosApi anakKosApi;
     private MutableLiveData<List<AnakKos>> listAnakKos;
 
     public DashboardViewModel() {
         title = new MutableLiveData<>();
         title.setValue("Data Anak Kos");
-        anakKosApi = KoskuClient.createService(AnakKosApi.class);
     }
 
     public LiveData<String> getTitle() {
@@ -33,22 +31,7 @@ public class DashboardViewModel extends ViewModel {
     }
 
     public MutableLiveData<List<AnakKos>> getListAnakKos() {
-        if (listAnakKos == null) {
-            listAnakKos = new MutableLiveData<>();
-            anakKosApi.getAllAnakKos().enqueue(new Callback<List<AnakKos>>() {
-                @Override
-                public void onResponse(Call<List<AnakKos>> call, Response<List<AnakKos>> response) {
-                    Log.d("VMData", "Uda lewat sini lho");
-                    listAnakKos.setValue(response.body());
-                }
-
-                @Override
-                public void onFailure(Call<List<AnakKos>> call, Throwable t) {
-                    Log.e("VMData", t.getMessage());
-                }
-            });
-        }
-        return listAnakKos;
+        return new AnakKos().getListAnakKos();
     }
 
     @BindingAdapter("android:visibility")

@@ -34,7 +34,7 @@ public class AnakKosAdapter extends RecyclerView.Adapter<AnakKosAdapter.AnakKosV
 
     @Override
     public void onBindViewHolder(@NonNull AnakKosAdapter.AnakKosViewHolder holder, int position) {
-        AnakKosViewModel anakKosViewModel = new AnakKosViewModel(anakKosList.get(position));
+        AnakKosItemViewModel anakKosViewModel = new AnakKosItemViewModel(anakKosList.get(position));
         holder.setBinding(anakKosViewModel);
     }
 
@@ -50,7 +50,7 @@ public class AnakKosAdapter extends RecyclerView.Adapter<AnakKosAdapter.AnakKosV
             binding = itemView;
         }
 
-        public void setBinding(AnakKosViewModel viewModel) {
+        public void setBinding(AnakKosItemViewModel viewModel) {
             this.binding.setViewModel(viewModel);
             binding.executePendingBindings();
             binding.anakKosCard.setOnClickListener(new View.OnClickListener() {
