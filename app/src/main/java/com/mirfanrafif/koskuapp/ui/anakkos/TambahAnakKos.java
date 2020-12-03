@@ -34,11 +34,13 @@ public class TambahAnakKos extends AppCompatActivity {
         asalEdit = (EditText) findViewById(R.id.asalInput);
         nohpEdit = (EditText) findViewById(R.id.nohpInput);
 
-        if (method.equals("PUT")) {
-            id = intent.getStringExtra("EXTRA_ID");
-            namaEdit.setText(intent.getStringExtra("EXTRA_NAMA"));
-            asalEdit.setText(intent.getStringExtra("EXTRA_ASAL"));
-            nohpEdit.setText(intent.getStringExtra("EXTRA_NOHP"));
+        if (method != null) {
+            if (method.equals("PUT")) {
+                id = intent.getStringExtra("EXTRA_ID");
+                namaEdit.setText(intent.getStringExtra("EXTRA_NAMA"));
+                asalEdit.setText(intent.getStringExtra("EXTRA_ASAL"));
+                nohpEdit.setText(intent.getStringExtra("EXTRA_NOHP"));
+            }
         }
 
         simpanButton.setOnClickListener(v -> saveAnakKos(v));
@@ -63,10 +65,12 @@ public class TambahAnakKos extends AppCompatActivity {
         anakKos.setAsal(asalEdit.getText().toString());
         anakKos.setNohp(nohpEdit.getText().toString());
 
-        if (method.equals("PUT")){
-            new AnakKos().updateDataAnakKos(this, id, anakKos);
-        }else{
-            new AnakKos().saveDataAnakKos(this, anakKos);
+        if (method != null) {
+            if (method.equals("PUT")){
+                new AnakKos().updateDataAnakKos(this, id, anakKos);
+            }else{
+                new AnakKos().saveDataAnakKos(this, anakKos);
+            }
         }
 
     }
