@@ -15,4 +15,10 @@ public interface AnakKosApi {
 
     @GET("anakkos/{id}")
     Call<List<AnakKos>> getAnakKosById(@Path("id") String id);
+
+    @DELETE("anakkos/{id}")
+    Call<AnakKos> deleteAnakKosById(@Path("id") String id);
+
+    @PUT("anakkos/{id}")
+    Call<AnakKos> updateDataAnakKos(@Path("id") String id, @Body AnakKos anakKos);
 }

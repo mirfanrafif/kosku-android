@@ -1,9 +1,13 @@
 package com.mirfanrafif.koskuapp.models;
 
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 import androidx.lifecycle.MutableLiveData;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.mirfanrafif.koskuapp.MainActivity;
 import com.mirfanrafif.koskuapp.services.AnakKosApi;
 import com.mirfanrafif.koskuapp.services.KoskuClient;
 import com.mirfanrafif.koskuapp.ui.anakkos.AnakKosItemViewModel;
@@ -120,5 +124,53 @@ public class AnakKos {
         });
 
         return anakKos;
+    }
+
+    public MutableLiveData<AnakKos> deleteAnakKosById(String id) {
+        MutableLiveData<AnakKos> anakKos = new MutableLiveData<>();
+        anakKosApi.deleteAnakKosById(id).enqueue(new Callback<AnakKos>() {
+            @Override
+            public void onResponse(Call<AnakKos> call, Response<AnakKos> response) {
+                anakKos.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<AnakKos> call, Throwable t) {
+                Toast.makeText(null, "Gagal Menghapus Data : " + t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+
+        return anakKos;
+    }
+
+    public void updateDataAnakKos(Context context, String id, AnakKos anakKos) {
+        Log.d("updateData", id);
+        anakKosApi.updateDataAnakKos(id, anakKos).enqueue(new Callback<AnakKos>() {
+            @Override
+            public void onResponse(Call<AnakKos> call, Response<AnakKos> response) {
+                Intent intent = new Intent(context, MainActivity.class);
+                context.startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(Call<AnakKos> call, Throwable t) {
+                Toast.makeText(null, "Gagal mengubah Data : " + t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    public void saveDataAnakKos(Context context, AnakKos anakKos) {
+        anakKosApi.saveAnakKos(anakKos).enqueue(new Callback<AnakKos>() {
+            @Override
+            public void onResponse(Call<AnakKos> call, Response<AnakKos> response) {
+                Intent intent = new Intent(context, MainActivity.class);
+                context.startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(Call<AnakKos> call, Throwable t) {
+                Toast.makeText(null, "Gagal Menambah Data : " + t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

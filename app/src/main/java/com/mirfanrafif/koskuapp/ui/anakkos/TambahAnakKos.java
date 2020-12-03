@@ -20,27 +20,32 @@ import retrofit2.Response;
 public class TambahAnakKos extends AppCompatActivity {
     private Button simpanButton;
     private EditText namaEdit, asalEdit, nohpEdit;
+    String id, method;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tambah_anak_kos);
+
+        Intent intent = getIntent();
+        method = intent.getStringExtra("EXTRA_METHOD");
 
         simpanButton = (Button) findViewById(R.id.simpanButton);
         namaEdit = (EditText) findViewById(R.id.namaInput);
         asalEdit = (EditText) findViewById(R.id.asalInput);
         nohpEdit = (EditText) findViewById(R.id.nohpInput);
 
-        simpanButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                saveAnakKos(v);
-            }
-        });
+        if (method.equals("PUT")) {
+            id = intent.getStringExtra("EXTRA_ID");
+            namaEdit.setText(intent.getStringExtra("EXTRA_NAMA"));
+            asalEdit.setText(intent.getStringExtra("EXTRA_ASAL"));
+            nohpEdit.setText(intent.getStringExtra("EXTRA_NOHP"));
+        }
+
+        simpanButton.setOnClickListener(v -> saveAnakKos(v));
 
     }
 
     public void saveAnakKos(View view) {
-        AnakKosApi anakKosApi = KoskuClient.createService(AnakKosApi.class);
         AnakKos anakKos = new AnakKos();
 
         if (namaEdit.getText().toString().equals("")){
@@ -58,18 +63,11 @@ public class TambahAnakKos extends AppCompatActivity {
         anakKos.setAsal(asalEdit.getText().toString());
         anakKos.setNohp(nohpEdit.getText().toString());
 
-        anakKosApi.saveAnakKos(anakKos).enqueue(new Callback<AnakKos>() {
-            @Override
-            public void onResponse(Call<AnakKos> call, Response<AnakKos> response) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        if (method.equals("PUT")){
+            new AnakKos().updateDataAnakKos(this, id, anakKos);
+        }else{
+            new AnakKos().saveDataAnakKos(this, anakKos);
+        }
 
-            @Override
-            public void onFailure(Call<AnakKos> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
     }
 }
