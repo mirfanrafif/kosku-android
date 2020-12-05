@@ -1,21 +1,13 @@
 package com.mirfanrafif.koskuapp.ui.anakkos;
 
 import android.content.Intent;
-import android.util.Log;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import com.mirfanrafif.koskuapp.MainActivity;
 import com.mirfanrafif.koskuapp.R;
 import com.mirfanrafif.koskuapp.models.AnakKos;
-import com.mirfanrafif.koskuapp.services.AnakKosApi;
-import com.mirfanrafif.koskuapp.services.KoskuClient;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class TambahAnakKos extends AppCompatActivity {
     private Button simpanButton;
@@ -66,11 +58,9 @@ public class TambahAnakKos extends AppCompatActivity {
         anakKos.setNohp(nohpEdit.getText().toString());
 
         if (method != null) {
-            if (method.equals("PUT")){
-                new AnakKos().updateDataAnakKos(this, id, anakKos);
-            }else{
-                new AnakKos().saveDataAnakKos(this, anakKos);
-            }
+            new AnakKos().updateDataAnakKos(this, id, anakKos);
+        }else{
+            new AnakKos().saveDataAnakKos(this, anakKos);
         }
 
     }

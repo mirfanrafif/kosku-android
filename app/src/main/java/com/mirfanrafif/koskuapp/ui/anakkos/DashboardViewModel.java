@@ -24,6 +24,7 @@ public class DashboardViewModel extends ViewModel {
     public DashboardViewModel() {
         title = new MutableLiveData<>();
         title.setValue("Data Anak Kos");
+        listAnakKos =  new AnakKos().getListAnakKos();
     }
 
     public LiveData<String> getTitle() {
@@ -31,7 +32,7 @@ public class DashboardViewModel extends ViewModel {
     }
 
     public MutableLiveData<List<AnakKos>> getListAnakKos() {
-        return new AnakKos().getListAnakKos();
+        return listAnakKos;
     }
 
     @BindingAdapter("android:visibility")
