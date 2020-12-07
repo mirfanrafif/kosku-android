@@ -1,32 +1,27 @@
 package com.mirfanrafif.koskuapp.ui.pembayaran;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.mirfanrafif.koskuapp.R;
 import com.mirfanrafif.koskuapp.databinding.FragmentNotificationsBinding;
-import com.mirfanrafif.koskuapp.models.Pembayaran;
 
-import java.util.List;
+public class PembayaranFragment extends Fragment {
 
-public class NotificationsFragment extends Fragment {
-
-    private NotificationsViewModel notificationsViewModel;
+    private PembayaranViewModel notificationsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         notificationsViewModel =
-                ViewModelProviders.of(this).get(NotificationsViewModel.class);
+                ViewModelProviders.of(this).get(PembayaranViewModel.class);
         View root = inflater.inflate(R.layout.fragment_notifications, container, false);
         FragmentNotificationsBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_notifications, container, false);
         View view = binding.getRoot();
@@ -39,6 +34,14 @@ public class NotificationsFragment extends Fragment {
             pembayaranAdapter.notifyDataSetChanged();
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             recyclerView.setAdapter(pembayaranAdapter);
+        });
+
+        binding.tambahPembayaranFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), TambahPembayaran.class);
+                startActivity(intent);
+            }
         });
 
         binding.setViewModel(notificationsViewModel);

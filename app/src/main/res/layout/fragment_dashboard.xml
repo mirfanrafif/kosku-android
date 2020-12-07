@@ -5,14 +5,14 @@
         xmlns:tools="http://schemas.android.com/tools"
 >
     <data>
-        <variable name="viewModel" type="com.mirfanrafif.koskuapp.ui.anakkos.DashboardViewModel"/>
+        <variable name="viewModel" type="com.mirfanrafif.koskuapp.ui.anakkos.AnakKosViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".ui.anakkos.DashboardFragment">
+            tools:context=".ui.anakkos.AnakKosFragment">
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/anakKosRv"

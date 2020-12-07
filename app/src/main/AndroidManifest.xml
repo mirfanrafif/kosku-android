@@ -11,6 +11,10 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".ui.pembayaran.DetailPembayaran">
+        </activity>
+        <activity android:name=".ui.pembayaran.TambahPembayaran">
+        </activity>
         <activity android:name=".ui.anakkos.DetailAnakKos">
         </activity>
         <activity android:name=".ui.anakkos.TambahAnakKos">

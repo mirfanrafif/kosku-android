@@ -15,29 +15,29 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.mirfanrafif.koskuapp.R;
 import com.mirfanrafif.koskuapp.databinding.FragmentDashboardBinding;
 
-public class DashboardFragment extends Fragment {
+public class AnakKosFragment extends Fragment {
 
     private AnakKosAdapter anakKosAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
+        AnakKosViewModel anakKosViewModel =
+                ViewModelProviders.of(this).get(AnakKosViewModel.class);
         FragmentDashboardBinding binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_dashboard, container, false);
         View view = binding.getRoot();
         RecyclerView anakKosRv = view.findViewById(R.id.anakKosRv);
-        dashboardViewModel.setVisibility(binding.progressBar, true);
+        anakKosViewModel.setVisibility(binding.progressBar, true);
 
-        dashboardViewModel.getListAnakKos().observe(getViewLifecycleOwner(), anakKos -> {
-            dashboardViewModel.setVisibility(binding.progressBar, false);
+        anakKosViewModel.getListAnakKos().observe(getViewLifecycleOwner(), anakKos -> {
+            anakKosViewModel.setVisibility(binding.progressBar, false);
             anakKosAdapter = new AnakKosAdapter(getActivity(), anakKos);
             anakKosAdapter.notifyDataSetChanged();
             anakKosRv.setLayoutManager(new LinearLayoutManager(getContext()));
             anakKosRv.setAdapter(anakKosAdapter);
             Log.d("DashboardFragment", "Uda lewat sini lho");
         });
-        binding.setViewModel(dashboardViewModel);
+        binding.setViewModel(anakKosViewModel);
 
         binding.tambahDataFab.setOnClickListener(new View.OnClickListener() {
             @Override

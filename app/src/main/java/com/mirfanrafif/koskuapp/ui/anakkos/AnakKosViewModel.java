@@ -16,12 +16,12 @@ import retrofit2.Response;
 
 import java.util.List;
 
-public class DashboardViewModel extends ViewModel {
+public class AnakKosViewModel extends ViewModel {
 
     private MutableLiveData<String> title;
     private MutableLiveData<List<AnakKos>> listAnakKos;
 
-    public DashboardViewModel() {
+    public AnakKosViewModel() {
         title = new MutableLiveData<>();
         title.setValue("Data Anak Kos");
         listAnakKos =  new AnakKos().getListAnakKos();

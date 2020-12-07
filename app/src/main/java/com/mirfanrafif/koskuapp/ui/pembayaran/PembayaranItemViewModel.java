@@ -7,16 +7,19 @@ public class PembayaranItemViewModel {
     private MutableLiveData<String> namaAnakKos;
     private MutableLiveData<String> bulan;
     private MutableLiveData<String> tahun;
+    private MutableLiveData<String> id;
 
 
     public PembayaranItemViewModel(Pembayaran pembayaran) {
         this.namaAnakKos = new MutableLiveData<>();
         this.bulan = new MutableLiveData<>();
         this.tahun = new MutableLiveData<>();
+        this.id = new MutableLiveData<>();
 
         this.namaAnakKos.setValue(pembayaran.getAnakKos().getNama());
         this.bulan.setValue(pembayaran.getBulan().toString());
         this.tahun.setValue(pembayaran.getTahun().toString());
+        this.id.setValue(pembayaran.getId());
     }
 
     public MutableLiveData<String> getNamaAnakKos() {
@@ -41,5 +44,13 @@ public class PembayaranItemViewModel {
 
     public void setTahun(MutableLiveData<String> tahun) {
         this.tahun = tahun;
+    }
+
+    public MutableLiveData<String> getId() {
+        return id;
+    }
+
+    public void setId(MutableLiveData<String> id) {
+        this.id = id;
     }
 }

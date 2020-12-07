@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="viewModel" type="com.mirfanrafif.koskuapp.ui.pembayaran.PembayaranItemViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.pembayaran.DetailPembayaran">
+
+        <TextView
+                android:text="Detail Pembayaran"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView3"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+                android:textSize="24sp"
+                android:layout_marginStart="16dp" android:layout_marginTop="16dp"/>
+        <TextView
+                android:text="Nama Anak Kos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/namaLabel"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp" android:layout_marginTop="24dp"/>
+        <TextView
+                android:text="Bulan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/bulanLabel"
+                app:layout_constraintTop_toBottomOf="@+id/namaLabel" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp" android:layout_marginTop="16dp"/>
+        <TextView
+                android:text="Tahun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/tahunLabel"
+                app:layout_constraintTop_toBottomOf="@+id/bulanLabel" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp" android:layout_marginTop="16dp"/>
+        <TextView
+                android:text="@{viewModel.namaAnakKos}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/namaText"
+                app:layout_constraintStart_toEndOf="@+id/namaLabel" app:layout_constraintTop_toTopOf="@+id/namaLabel"
+                android:layout_marginStart="68dp"/>
+        <TextView
+                android:text="@{viewModel.bulan}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/bulanText"
+                app:layout_constraintTop_toTopOf="@+id/bulanLabel" app:layout_constraintStart_toStartOf="@+id/namaText"/>
+        <TextView
+                android:text="@{viewModel.tahun}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/tahunText"
+                app:layout_constraintStart_toStartOf="@+id/bulanText" app:layout_constraintTop_toTopOf="@+id/tahunLabel"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

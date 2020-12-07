@@ -88,4 +88,36 @@ public class Pembayaran {
         return listPembayaran;
     }
 
+
+    public void saveAnakKos() {
+        pembayaranApi.savePembayaran(this).enqueue(new Callback<Pembayaran>() {
+            @Override
+            public void onResponse(Call<Pembayaran> call, Response<Pembayaran> response) {
+                Log.d("saveData", response.body().getId());
+            }
+
+            @Override
+            public void onFailure(Call<Pembayaran> call, Throwable t) {
+                Log.d("saveData", t.getMessage());
+            }
+        });
+    }
+
+    public MutableLiveData<Pembayaran> getById(String id) {
+        MutableLiveData<Pembayaran> pembayaran = new MutableLiveData<>();
+        pembayaranApi.getById(id).enqueue(new Callback<Pembayaran>() {
+            @Override
+            public void onResponse(Call<Pembayaran> call, Response<Pembayaran> response) {
+                Pembayaran res = response.body();
+                Log.d("detail", "Nama : " + res.getAnakKos().getNama());
+                pembayaran.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<Pembayaran> call, Throwable t) {
+                Log.e("detail", "Error : " + t.getMessage());
+            }
+        });
+        return pembayaran;
+    }
 }

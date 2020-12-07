@@ -8,11 +8,11 @@ import com.mirfanrafif.koskuapp.models.Pembayaran;
 
 import java.util.List;
 
-public class NotificationsViewModel extends ViewModel {
+public class PembayaranViewModel extends ViewModel {
 
     private MutableLiveData<List<Pembayaran>> pembayaranList;
 
-    public NotificationsViewModel() {
+    public PembayaranViewModel() {
         pembayaranList = new Pembayaran().getAllPembayaran();
     }
 
